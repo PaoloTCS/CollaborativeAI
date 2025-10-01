@@ -1,0 +1,25 @@
+:root{
+  --ink:#213547; --muted:#667; --bg:#f9fafc;
+  --brand1:#667eea; --brand2:#764ba2;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,sans-serif;color:var(--ink);background:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:2rem 1rem}
+header{display:flex;align-items:center;gap:1rem;justify-content:space-between;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:inherit}
+.brand img{height:48px;width:auto}
+.brand h1{margin:0;font-size:1.25rem;background:linear-gradient(90deg,var(--brand1),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav a{margin-left:1rem;text-decoration:none;color:var(--ink);font-weight:600}
+nav a:hover{color:var(--brand1)}
+nav a.active{color:var(--brand2)}
+.hero{padding:3rem 1rem;text-align:center;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.hero h2{margin:.5rem 0 1rem;font-size:2.2rem}
+.hero p{margin:0 auto 1.25rem;max-width:720px;font-size:1.1rem;line-height:1.55}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:8px;font-weight:700;text-decoration:none}
+.btn.primary{background:var(--brand1);color:#fff}
+.btn.primary:hover{background:#5468d6}
+.btn.ghost{border:2px solid var(--brand1);color:var(--brand1)}
+.btn.ghost:hover{background:#eef0ff}
+.section{margin-top:2rem}
+.card{background:#fff;border-radius:12px;padding:1.25rem;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+footer{margin:3rem 0 1rem;text-align:center;color:#666;font-size:.95rem}

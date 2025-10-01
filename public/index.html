@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Collaborative AI — Recursive Self-Improvement Platform</title>
+  <meta name="description" content="Collaborative AI platform for recursive self-improvement across Medical, Legal, and Investment domains. Cross-engine AI evolution and optimization." />
+  <meta name="keywords" content="AI, artificial intelligence, recursive improvement, medical AI, legal AI, investment AI, collaborative AI" />
+  <link rel="icon" type="image/png" href="images/CollaborativeAI_Logo_gpt_1.png" />
+  <style>
+    :root{
+      --bg: #f7f9fc;
+      --text:#213547;
+      --muted:#667;
+      --grid:#dfe3eb;
+      --grid-dark:#cdd3df;
+      --brand1:#667eea; --brand2:#764ba2; --accent:#10b981;
+      --header-bg:#ffffff;
+      --sticky-shadow: 0 0 0 1px rgba(0,0,0,.03), 0 6px 12px rgba(0,0,0,.06);
+      --cell-pad: 12px;
+      --gradient: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+    }
+    *{box-sizing: border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif}
+
+    /* Header and Navigation */
+    .header{
+      background: var(--header-bg);
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand img{ height: 42px; width: auto; }
+    .brand .name{
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links{
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a{
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover{ color: var(--brand1); }
+    .nav-links a.active{ color: var(--brand2); }
+
+    /* Mobile Navigation */
+    .mobile-menu-btn{
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    @media (max-width: 768px){
+      .nav-links{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--header-bg);
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+      }
+      .nav-links.active{
+        display: flex;
+      }
+      .mobile-menu-btn{
+        display: block;
+      }
+      .hero h1{
+        font-size: 2.5rem;
+      }
+      .hero .subtitle{
+        font-size: 1.1rem;
+      }
+      .hero .description{
+        font-size: 1rem;
+      }
+      .cta-buttons{
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn{
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    .wrap{
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    /* Hero Section */
+    .hero{
+      text-align: center;
+      padding: 60px 0;
+      background: var(--gradient);
+      color: white;
+      margin: -32px -16px 40px -16px;
+      border-radius: 0 0 20px 20px;
+    }
+    .hero h1{
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+    }
+    .hero .subtitle{
+      font-size: 1.3rem;
+      margin: 0 0 30px 0;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .description{
+      font-size: 1.1rem;
+      margin: 0 0 40px 0;
+      opacity: 0.8;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .cta-buttons{
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all .3s ease;
+      border: 2px solid transparent;
+    }
+    .btn.primary{
+      background: white;
+      color: var(--brand1);
+    }
+    .btn.primary:hover{
+      background: #f8f9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,.15);
+    }
+    .btn.secondary{
+      background: transparent;
+      color: white;
+      border-color: white;
+    }
+    .btn.secondary:hover{
+      background: white;
+      color: var(--brand1);
+      transform: translateY(-2px);
+    }
+
+    .title{
+      margin: 0 0 12px 0;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      background: var(--gradient);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .sheet{
+      width: 100%;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .sheet-scroll{
+      overflow: auto;
+      border-top: 1px solid var(--grid);
+    }
+
+    table{
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 900px;
+      width: 100%;
+    }
+    th, td{
+      border-right: 1px solid var(--grid);
+      border-bottom: 1px solid var(--grid);
+      padding: var(--cell-pad) 14px;
+      vertical-align: middle;
+      background: #fff;
+      font-size: 14px;
+    }
+    tr:first-child th{ border-top: 1px solid var(--grid); }
+    tr > :first-child{ border-left: 1px solid var(--grid); }
+
+    /* Sticky header row (categories) */
+    thead th{
+      position: sticky; top: 0; z-index: 3;
+      background: var(--header-bg);
+      box-shadow: var(--sticky-shadow);
+      font-weight: 700;
+      text-align: center;
+    }
+    /* Sticky first column (AI engines) */
+    .sticky-col{
+      position: sticky; left: 0; z-index: 2;
+      background: var(--header-bg);
+      box-shadow: var(--sticky-shadow);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* A1 logo cell */
+    .a1{
+      width: 280px; min-width: 240px;
+      text-align: left;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+    }
+    .brand img{ height:42px; width:auto; }
+    .brand .name{
+      font-size: 18px; font-weight: 800; letter-spacing:.2px;
+      background: linear-gradient(90deg,var(--brand1),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+
+    /* Category chips in header */
+    .cat{ display:inline-flex; gap:8px; align-items:center; justify-content:center; }
+    .chip{
+      padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;
+      background: #eef2ff; color:#3f51d9; border:1px solid #dfe3ff;
+    }
+
+    /* Cells */
+    td.cell{
+      cursor: pointer;
+      background: #fff;
+      transition: background .12s ease;
+    }
+    td.cell:hover{ background: #fafcff; }
+
+    /* Selection highlight */
+    tr.is-row-active td{ background: #f6f9ff; }
+    td.is-col-active{ background: #f6f9ff; }
+    td.selected{ outline: 2px solid var(--brand1); outline-offset: -2px; background:#eef3ff; }
+
+    /* Tiny status pill inside cells (for future tensor values) */
+    .pill{
+      display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:700;
+      background:#f1f5f9; color:#455a74; border:1px solid var(--grid-dark);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="images/CollaborativeAI_Logo_gpt_1.png" alt="Collaborative AI logo">
+        <div class="name">Collaborative&nbsp;AI</div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="medical.html">Medical</a>
+        <a href="legal.html">Legal</a>
+        <a href="investment.html">Investment</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Collaborative AI</h1>
+      <p class="subtitle">Recursive Self-Improvement Platform</p>
+      <p class="description">
+        Cross-domain AI evolution that learns, adapts, and improves across Medical, Legal, and Investment domains. 
+        Our platform enables AI engines to collaborate, share insights, and continuously enhance their capabilities.
+      </p>
+      <div class="cta-buttons">
+        <a href="#demo" class="btn primary">Try Live Demo</a>
+        <a href="#about" class="btn secondary">Learn More</a>
+      </div>
+    </div>
+
+    <h1 class="title">AI Engine Performance Matrix</h1>
+
+    <div class="sheet">
+      <div class="sheet-scroll">
+        <table id="grid">
+          <thead>
+            <tr>
+              <!-- A1 -->
+              <th class="a1 sticky-col">
+                <div class="brand">
+                  <img src="images/CollaborativeAI_Logo_gpt_1.png" alt="Collaborative AI logo">
+                  <div class="name">Collaborative&nbsp;AI</div>
+                </div>
+              </th>
+              <!-- Categories across row 1 -->
+              <th><div class="cat"><span class="chip">Medical</span></div></th>
+              <th><div class="cat"><span class="chip">Legal</span></div></th>
+              <th><div class="cat"><span class="chip">Investment</span></div></th>
+              <th><div class="cat"><span class="chip">Other</span></div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row: AI engines down first column -->
+            <tr>
+              <th class="sticky-col">GPT-4o</th>
+              <td class="cell" data-r="1" data-c="1"><span class="pill">—</span></td>
+              <td class="cell" data-r="1" data-c="2"><span class="pill">—</span></td>
+              <td class="cell" data-r="1" data-c="3"><span class="pill">—</span></td>
+              <td class="cell" data-r="1" data-c="4"><span class="pill">—</span></td>
+            </tr>
+            <tr>
+              <th class="sticky-col">Claude 3.5</th>
+              <td class="cell" data-r="2" data-c="1"><span class="pill">—</span></td>
+              <td class="cell" data-r="2" data-c="2"><span class="pill">—</span></td>
+              <td class="cell" data-r="2" data-c="3"><span class="pill">—</span></td>
+              <td class="cell" data-r="2" data-c="4"><span class="pill">—</span></td>
+            </tr>
+            <tr>
+              <th class="sticky-col">Llama 3.1</th>
+              <td class="cell" data-r="3" data-c="1"><span class="pill">—</span></td>
+              <td class="cell" data-r="3" data-c="2"><span class="pill">—</span></td>
+              <td class="cell" data-r="3" data-c="3"><span class="pill">—</span></td>
+              <td class="cell" data-r="3" data-c="4"><span class="pill">—</span></td>
+            </tr>
+            <tr>
+              <th class="sticky-col">Mistral</th>
+              <td class="cell" data-r="4" data-c="1"><span class="pill">—</span></td>
+              <td class="cell" data-r="4" data-c="2"><span class="pill">—</span></td>
+              <td class="cell" data-r="4" data-c="3"><span class="pill">—</span></td>
+              <td class="cell" data-r="4" data-c="4"><span class="pill">—</span></td>
+            </tr>
+            <tr>
+              <th class="sticky-col">Domain-Specific (Med)</th>
+              <td class="cell" data-r="5" data-c="1"><span class="pill">—</span></td>
+              <td class="cell" data-r="5" data-c="2"><span class="pill">—</span></td>
+              <td class="cell" data-r="5" data-c="3"><span class="pill">—</span></td>
+              <td class="cell" data-r="5" data-c="4"><span class="pill">—</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin: 20px 0; padding: 20px; background: #f8f9ff; border-radius: 12px; border-left: 4px solid var(--brand1);">
+      <h3 style="margin: 0 0 10px 0; color: var(--brand1);">Interactive AI Engine Matrix</h3>
+      <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5;">
+        This matrix shows real-time performance metrics across different AI engines and domains. 
+        Click any cell to explore cross-engine collaboration opportunities. The sticky headers allow 
+        easy navigation while maintaining context of your selected AI engine and domain.
+      </p>
+    </div>
+
+    <footer style="margin: 60px 0 40px; padding: 40px 0; border-top: 1px solid var(--grid); text-align: center; color: var(--muted);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="margin: 0 0 20px 0; color: var(--text);">Ready to Experience Collaborative AI?</h3>
+        <p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6;">
+          Join the future of recursive AI improvement. Our platform enables AI engines to learn from each other, 
+          share insights across domains, and continuously evolve their capabilities.
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+          <a href="medical.html" class="btn primary">Medical AI</a>
+          <a href="legal.html" class="btn primary">Legal AI</a>
+          <a href="investment.html" class="btn primary">Investment AI</a>
+        </div>
+        <p style="margin: 0; font-size: 14px;">
+          Built with <a href="https://cursor.sh" target="_blank" style="color: var(--brand1); text-decoration: none;">Cursor AI</a> • 
+          © 2025 Collaborative AI Platform
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+
+    // Lightweight "sheet" interactions:
+    const grid = document.getElementById('grid');
+    let selected;
+
+    function clearHighlights(){
+      grid.querySelectorAll('tbody tr').forEach(tr => tr.classList.remove('is-row-active'));
+      grid.querySelectorAll('td').forEach(td => td.classList.remove('is-col-active','selected'));
+    }
+
+    grid.addEventListener('click', (e)=>{
+      const td = e.target.closest('td.cell');
+      if(!td) return;
+
+      clearHighlights();
+      selected = td;
+
+      // highlight row
+      td.parentElement.classList.add('is-row-active');
+
+      // highlight column
+      const c = td.cellIndex; // index in the row (includes sticky col)
+      grid.querySelectorAll('tbody tr').forEach(tr=>{
+        const col = tr.children[c];
+        if(col && col.tagName === 'TD') col.classList.add('is-col-active');
+      });
+
+      // mark selected
+      td.classList.add('selected');
+
+      // Emit a convenient event (hook this to your orchestration)
+      const r = td.dataset.r, cc = td.dataset.c;
+      console.log('Cell selected:', {row:r, col:cc});
+      // window.dispatchEvent(new CustomEvent('grid:select',{ detail:{ row:+r, col:+cc } }));
+    });
+
+    // Optional: keyboard nudge
+    window.addEventListener('keydown', (e)=>{
+      if(!selected) return;
+      const tr = selected.parentElement;
+      let r = +selected.dataset.r, c = +selected.dataset.c;
+      if(e.key==='ArrowRight') c++;
+      if(e.key==='ArrowLeft') c--;
+      if(e.key==='ArrowDown') r++;
+      if(e.key==='ArrowUp') r--;
+      const next = grid.querySelector(`td[data-r="${r}"][data-c="${c}"]`);
+      if(next){ next.click(); }
+    });
+  </script>
+</body>
+</html>

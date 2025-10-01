@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Investment AI — Collaborative AI Platform</title>
+  <meta name="description" content="Advanced Investment AI powered by Collaborative AI's recursive self-improvement platform. Financial analysis, market insights, and investment strategy optimization." />
+  <link rel="icon" type="image/png" href="images/CollaborativeAI_Logo_gpt_1.png" />
+  <style>
+    :root{
+      --bg: #f7f9fc;
+      --text:#213547;
+      --muted:#667;
+      --brand1:#667eea; --brand2:#764ba2; --accent:#10b981;
+      --investment-accent:#38a169;
+      --header-bg:#ffffff;
+      --gradient: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+    }
+    *{box-sizing: border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif}
+
+    /* Header and Navigation */
+    .header{
+      background: var(--header-bg);
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand img{ height: 42px; width: auto; }
+    .brand .name{
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links{
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a{
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover{ color: var(--brand1); }
+    .nav-links a.active{ color: var(--investment-accent); }
+
+    .wrap{
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    .hero{
+      text-align: center;
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--investment-accent) 0%, #2f855a 100%);
+      color: white;
+      margin: -32px -16px 40px -16px;
+      border-radius: 0 0 20px 20px;
+    }
+    .hero h1{
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+    }
+    .hero .subtitle{
+      font-size: 1.3rem;
+      margin: 0 0 30px 0;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .description{
+      font-size: 1.1rem;
+      margin: 0 0 40px 0;
+      opacity: 0.8;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .features{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .feature-card{
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      border-left: 4px solid var(--investment-accent);
+    }
+    .feature-card h3{
+      margin: 0 0 15px 0;
+      color: var(--investment-accent);
+      font-size: 1.3rem;
+    }
+    .feature-card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .demo-section{
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      margin: 40px 0;
+    }
+    .demo-input{
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      resize: vertical;
+      min-height: 120px;
+    }
+    .demo-input:focus{
+      outline: none;
+      border-color: var(--investment-accent);
+    }
+    .btn{
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all .3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .btn.primary{
+      background: var(--investment-accent);
+      color: white;
+    }
+    .btn.primary:hover{
+      background: #2f855a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(56,161,105,.3);
+    }
+
+    .footer{
+      margin: 60px 0 40px;
+      padding: 40px 0;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="images/CollaborativeAI_Logo_gpt_1.png" alt="Collaborative AI logo">
+        <div class="name">Collaborative&nbsp;AI</div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="medical.html">Medical</a>
+        <a href="legal.html">Legal</a>
+        <a href="investment.html" class="active">Investment</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Investment AI</h1>
+      <p class="subtitle">Intelligent Financial Analysis & Strategy</p>
+      <p class="description">
+        Our Investment AI leverages recursive self-improvement to provide sophisticated financial analysis, 
+        market insights, and investment strategy optimization. Enhanced by cross-domain learning to deliver 
+        more accurate and profitable investment guidance.
+      </p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>📈 Market Analysis</h3>
+        <p>Advanced market trend analysis, risk assessment, and opportunity identification. Our AI continuously learns from successful investment strategies and cross-domain insights to improve market predictions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💰 Portfolio Optimization</h3>
+        <p>AI-powered portfolio construction, rebalancing, and risk management. Learns from medical and legal domain patterns to enhance financial risk assessment and diversification strategies.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔍 Investment Research</h3>
+        <p>Comprehensive analysis of companies, sectors, and investment opportunities. Identifies patterns and trends that traditional analysis might miss, leveraging cross-domain insights for better predictions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚡ Real-time Insights</h3>
+        <p>Live market monitoring and instant investment recommendations. Our Investment AI learns from successful trades and market movements to provide timely and accurate investment guidance.</p>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2 style="margin: 0 0 20px 0; color: var(--investment-accent);">Try Investment AI</h2>
+      <p style="margin: 0 0 20px 0; color: var(--muted);">
+        Ask our Investment AI about market analysis, investment strategies, or portfolio optimization. The AI will provide 
+        comprehensive financial insights enhanced by cross-domain learning from our collaborative platform.
+      </p>
+      <textarea class="demo-input" placeholder="Describe your investment question or provide financial data for analysis..."></textarea>
+      <button class="btn primary" onclick="processInvestmentQuery()">Get Investment AI Response</button>
+      <div id="investment-response" style="margin-top: 20px; padding: 20px; background: #f8f9ff; border-radius: 12px; display: none;">
+        <h4 style="margin: 0 0 10px 0; color: var(--investment-accent);">Investment AI Response:</h4>
+        <div id="response-content"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="margin: 0 0 20px 0; color: var(--text);">Investment AI Capabilities</h3>
+        <p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6;">
+          Our Investment AI is powered by Collaborative AI's recursive self-improvement platform, 
+          enabling it to learn from successful investment strategies across all domains and continuously 
+          enhance its financial analysis and market prediction capabilities.
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn primary">Back to Platform</a>
+          <a href="medical.html" class="btn primary">Medical AI</a>
+          <a href="legal.html" class="btn primary">Legal AI</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function processInvestmentQuery() {
+      const input = document.querySelector('.demo-input').value;
+      const responseDiv = document.getElementById('investment-response');
+      const contentDiv = document.getElementById('response-content');
+      
+      if (!input.trim()) {
+        alert('Please enter an investment question or provide financial data for analysis.');
+        return;
+      }
+      
+      responseDiv.style.display = 'block';
+      contentDiv.innerHTML = '<p style="color: #666; font-style: italic;">Processing your investment query with our AI system...</p>';
+      
+      // Simulate AI processing
+      setTimeout(() => {
+        contentDiv.innerHTML = `
+          <p><strong>Market Analysis:</strong> Based on your input, our Investment AI has analyzed the financial question and market context you provided.</p>
+          <p><strong>Investment Strategy:</strong> While this is a demonstration, our actual Investment AI would provide comprehensive market analysis, risk assessment, and investment recommendations.</p>
+          <p><strong>Cross-Domain Insight:</strong> Our AI has learned from medical and legal domain patterns to enhance its risk assessment and decision-making capabilities in financial markets.</p>
+          <p><strong>Portfolio Recommendations:</strong> The AI would suggest optimal asset allocation, risk management strategies, and investment opportunities based on the analysis.</p>
+          <p style="color: #38a169; font-weight: 600;">💰 Important: This is a demonstration. Always consult qualified financial professionals for investment advice.</p>
+        `;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Legal AI — Collaborative AI Platform</title>
+  <meta name="description" content="Advanced Legal AI powered by Collaborative AI's recursive self-improvement platform. Legal research, document analysis, and case law assistance." />
+  <link rel="icon" type="image/png" href="images/CollaborativeAI_Logo_gpt_1.png" />
+  <style>
+    :root{
+      --bg: #f7f9fc;
+      --text:#213547;
+      --muted:#667;
+      --brand1:#667eea; --brand2:#764ba2; --accent:#10b981;
+      --legal-accent:#2d3748;
+      --header-bg:#ffffff;
+      --gradient: linear-gradient(135deg, var(--brand1) 0%, var(--brand2) 100%);
+    }
+    *{box-sizing: border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif}
+
+    /* Header and Navigation */
+    .header{
+      background: var(--header-bg);
+      box-shadow: 0 2px 20px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand img{ height: 42px; width: auto; }
+    .brand .name{
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links{
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a{
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover{ color: var(--brand1); }
+    .nav-links a.active{ color: var(--legal-accent); }
+
+    .wrap{
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    .hero{
+      text-align: center;
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--legal-accent) 0%, #1a202c 100%);
+      color: white;
+      margin: -32px -16px 40px -16px;
+      border-radius: 0 0 20px 20px;
+    }
+    .hero h1{
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+    }
+    .hero .subtitle{
+      font-size: 1.3rem;
+      margin: 0 0 30px 0;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .description{
+      font-size: 1.1rem;
+      margin: 0 0 40px 0;
+      opacity: 0.8;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .features{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .feature-card{
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      border-left: 4px solid var(--legal-accent);
+    }
+    .feature-card h3{
+      margin: 0 0 15px 0;
+      color: var(--legal-accent);
+      font-size: 1.3rem;
+    }
+    .feature-card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .demo-section{
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      margin: 40px 0;
+    }
+    .demo-input{
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      resize: vertical;
+      min-height: 120px;
+    }
+    .demo-input:focus{
+      outline: none;
+      border-color: var(--legal-accent);
+    }
+    .btn{
+      display: inline-block;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all .3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+    .btn.primary{
+      background: var(--legal-accent);
+      color: white;
+    }
+    .btn.primary:hover{
+      background: #1a202c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(45,55,72,.3);
+    }
+
+    .footer{
+      margin: 60px 0 40px;
+      padding: 40px 0;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="images/CollaborativeAI_Logo_gpt_1.png" alt="Collaborative AI logo">
+        <div class="name">Collaborative&nbsp;AI</div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="medical.html">Medical</a>
+        <a href="legal.html" class="active">Legal</a>
+        <a href="investment.html">Investment</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Legal AI</h1>
+      <p class="subtitle">Intelligent Legal Research & Analysis</p>
+      <p class="description">
+        Our Legal AI leverages recursive self-improvement to provide comprehensive legal research, 
+        document analysis, and case law assistance. Enhanced by cross-domain learning to deliver 
+        more accurate and insightful legal guidance.
+      </p>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>⚖️ Legal Research</h3>
+        <p>Comprehensive analysis of case law, statutes, and legal precedents. Our AI continuously learns from successful legal strategies and cross-domain insights to improve research accuracy and relevance.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📄 Document Analysis</h3>
+        <p>Advanced contract review, legal document analysis, and risk assessment. Identifies potential issues, clauses, and opportunities that human reviewers might miss.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔍 Case Law Intelligence</h3>
+        <p>AI-powered analysis of legal cases, identifying patterns, trends, and precedents. Learns from medical and investment domain insights to enhance legal reasoning capabilities.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Compliance Monitoring</h3>
+        <p>Real-time compliance tracking and regulatory updates. Our Legal AI learns from cross-domain patterns to predict regulatory changes and compliance requirements.</p>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2 style="margin: 0 0 20px 0; color: var(--legal-accent);">Try Legal AI</h2>
+      <p style="margin: 0 0 20px 0; color: var(--muted);">
+        Ask our Legal AI about legal questions, case analysis, or document review. The AI will provide 
+        comprehensive legal insights enhanced by cross-domain learning from our collaborative platform.
+      </p>
+      <textarea class="demo-input" placeholder="Describe your legal question or provide document text for analysis..."></textarea>
+      <button class="btn primary" onclick="processLegalQuery()">Get Legal AI Response</button>
+      <div id="legal-response" style="margin-top: 20px; padding: 20px; background: #f8f9ff; border-radius: 12px; display: none;">
+        <h4 style="margin: 0 0 10px 0; color: var(--legal-accent);">Legal AI Response:</h4>
+        <div id="response-content"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="margin: 0 0 20px 0; color: var(--text);">Legal AI Capabilities</h3>
+        <p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6;">
+          Our Legal AI is powered by Collaborative AI's recursive self-improvement platform, 
+          enabling it to learn from successful legal strategies across all domains and continuously 
+          enhance its legal expertise and reasoning capabilities.
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn primary">Back to Platform</a>
+          <a href="medical.html" class="btn primary">Medical AI</a>
+          <a href="investment.html" class="btn primary">Investment AI</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function processLegalQuery() {
+      const input = document.querySelector('.demo-input').value;
+      const responseDiv = document.getElementById('legal-response');
+      const contentDiv = document.getElementById('response-content');
+      
+      if (!input.trim()) {
+        alert('Please enter a legal question or provide document text for analysis.');
+        return;
+      }
+      
+      responseDiv.style.display = 'block';
+      contentDiv.innerHTML = '<p style="color: #666; font-style: italic;">Processing your legal query with our AI system...</p>';
+      
+      // Simulate AI processing
+      setTimeout(() => {
+        contentDiv.innerHTML = `
+          <p><strong>Legal Analysis:</strong> Based on your input, our Legal AI has analyzed the legal question and context you provided.</p>
+          <p><strong>Research Findings:</strong> While this is a demonstration, our actual Legal AI would provide comprehensive legal research, case law analysis, and relevant precedents.</p>
+          <p><strong>Cross-Domain Insight:</strong> Our AI has learned from medical and investment domain patterns to enhance its legal reasoning and risk assessment capabilities.</p>
+          <p><strong>Recommendations:</strong> The AI would suggest relevant legal strategies, potential risks, and next steps based on the analysis.</p>
+          <p style="color: #2d3748; font-weight: 600;">⚖️ Important: This is a demonstration. Always consult qualified legal professionals for legal advice.</p>
+        `;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
